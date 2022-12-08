@@ -6,7 +6,7 @@ __all__ = ["gif_gray"]
 def gif_gray(arr, fname, fps=10):
     assert arr.ndim == 3, "Array must be 3D"
 
-    arr_rgb = np.copy(arr).astype(np.float32)
+    arr_rgb = np.array(arr, copy=True, dtype="float32")
     arr_rgb -= arr_rgb.min()
     arr_rgb /= arr_rgb.ptp()
     arr_rgb *= 255
